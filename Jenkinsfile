@@ -13,21 +13,24 @@ pipeline {
                 }
                 stage('Typescript Build') {
                     steps {
-                        dir("./DotnetTemplate.Web")
-                        sh "npm ci"
-                        sh "npm run build"
+                        dir("./DotnetTemplate.Web"){
+                            sh "npm ci"
+                            sh "npm run build"
+                        }
                     }
                 }
                 stage('Typescript Lint') {
                     steps {
-                        dir("./DotnetTemplate.Web")
-                        sh "npm run lint"
+                        dir("./DotnetTemplate.Web"){
+                            sh "npm run lint"
+                        }
                     }
                 }
                 stage('Typescript Test') {
                     steps {
-                        dir("./DotnetTemplate.Web")
-                        sh "npm test"
+                        dir("./DotnetTemplate.Web"){
+                            sh "npm test"
+                        }
                     }
                 }
             }
