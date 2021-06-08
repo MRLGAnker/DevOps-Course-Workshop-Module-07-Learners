@@ -23,8 +23,10 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 16.x
+    - name: NPM clear cache
+      run: cd DotnetTemplate.Web && npm cache clean
     - name: NPM Install
-      run: cd DotnetTemplate.Web && npm install
+      run: cd DotnetTemplate.Web && npm ci
     - name: NPM Build
       run: cd DotnetTemplate.Web && npm run build
     - name: NPM Test
