@@ -26,6 +26,6 @@ jobs:
     - name: NPM Install
       run: cd DotnetTemplate.Web && npm install
     - name: NPM Build
-      run: npm run build
+      run: cd DotnetTemplate.Web && npm run build
     - name: NPM Test
-      run: npm test
+      run: cd DotnetTemplate.Web && npm test
