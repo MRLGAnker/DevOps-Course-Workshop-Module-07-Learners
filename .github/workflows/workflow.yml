@@ -18,3 +18,14 @@ jobs:
       run: dotnet build
     - name: Test
       run: dotnet test
+
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 16.x
+    - name: NPM Install
+      run: cd DotnetTemplate.Web && npm install
+    - name: NPM Build
+      run: npm run build
+    - name: NPM Test
+      run: npm test
