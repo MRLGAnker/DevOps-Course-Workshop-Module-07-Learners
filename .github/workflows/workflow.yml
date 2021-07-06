@@ -71,18 +71,16 @@ jobs:
         name: Checkout
         uses: actions/checkout@v2
       -
-        name: Heroku Login
+        name: Heroku Push
         env:
           HEROKU_EMAIL: ${{ secrets.HEROKU_EMAIL }}
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-        run: heroku container:login
-      -
-        name: Heroku Push
-        env:
           HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
         run: heroku container:push web -a $HEROKU_APP_NAME
       -
         name: Heroku Release
         env:
+          HEROKU_EMAIL: ${{ secrets.HEROKU_EMAIL }}
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
           HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
         run: heroku container:release web -a $HEROKU_APP_NAME
