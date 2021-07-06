@@ -71,9 +71,6 @@ jobs:
         name: Checkout
         uses: actions/checkout@v2
       -
-        name: Docker Image Build
-        run: docker build -t ganker-module8 .
-      -
         name: Heroku Deploy
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
