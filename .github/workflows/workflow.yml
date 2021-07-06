@@ -72,7 +72,7 @@ jobs:
         uses: actions/checkout@
       -
         name: Docker Image Build
-          run: docker build -t ganker-module8 .
+        run: docker build -t ganker-module8 .
       -
         name: Heroku Deploy
         uses: akhileshns/heroku-deploy@v3.12.12
