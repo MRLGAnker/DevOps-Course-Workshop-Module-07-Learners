@@ -65,22 +65,17 @@ jobs:
           tags: mrlganker/module8
 
   heroku:
+    needs: docker
     runs-on: ubuntu-latest
     steps:
       -
         name: Checkout
         uses: actions/checkout@v2
       -
-        name: Heroku Push
-        env:
-          HEROKU_EMAIL: ${{ secrets.HEROKU_EMAIL }}
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-          HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
-        run: heroku container:push web -a $HEROKU_APP_NAME
-      -
-        name: Heroku Release
-        env:
-          HEROKU_EMAIL: ${{ secrets.HEROKU_EMAIL }}
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-          HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
-        run: heroku container:release web -a $HEROKU_APP_NAME
+        name: Heroku Deploy
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
+          usedocker: true
