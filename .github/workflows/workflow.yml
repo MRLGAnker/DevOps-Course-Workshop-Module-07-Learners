@@ -35,8 +35,8 @@ jobs:
     - name: NPM Test
       run: cd DotnetTemplate.Web && npm test
 
-##    - name: slack - GitHub Actions Slack integration
-##      uses: act10ns/slack@v1.2.2
+#    - name: slack - GitHub Actions Slack integration
+#      uses: act10ns/slack@v1.2.2
 
   docker:
     runs-on: ubuntu-latest
