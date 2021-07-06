@@ -78,3 +78,12 @@ jobs:
           heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
           heroku_email: ${{secrets.HEROKU_EMAIL}}
           usedocker: true
+      -
+        name: Health Check
+        uses: jtalk/url-health-check-action@v1.5
+        with:
+          url: https://${{ secrets.HEROKU_APP_NAME }}.herokuapp.com
+          follow-redirect: no
+          max-attempts: 3
+          retry-delay: 5s
+          retry-all: no

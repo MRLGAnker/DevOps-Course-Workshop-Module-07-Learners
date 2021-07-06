@@ -12,4 +12,4 @@ FROM mcr.microsoft.com/dotnet/aspnet:5.0
 WORKDIR /app
 COPY --from=build /app ./
 ENTRYPOINT ["dotnet", "DotnetTemplate.Web.dll"]
-HEALTHCHECK CMD curl --fail http://localhost:5000/health || exit
+#HEALTHCHECK CMD curl --fail http://localhost:5000/health || exit
